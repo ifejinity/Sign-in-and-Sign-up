@@ -6,7 +6,7 @@
         <div 
         class="section-container min-h-screen flex items-center justify-center">
             <div 
-            class="w-full max-w-[500px] grid grid-cols-6 gap-3 shadow-lg px-5 py-7 rounded-[10px] bg-primary">
+            class="w-full max-w-[500px] grid grid-cols-6 gap-3 shadow-lg px-5 py-7 rounded-[10px] bg-primary my-7">
                 <h1
                 class="md:text-[35px] text-[20px] font-[700] text-tertiary col-span-6"
                 >Sign up</h1>
