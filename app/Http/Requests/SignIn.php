@@ -23,14 +23,16 @@ class SignIn extends FormRequest
     {
         return [
             'username' => 'required|exists:users,username',
-            'password' => 'required'
+            'password' => 'required',
+            'recaptcha' => 'required'
         ];
     }
     
     public function messages(): array
     {
         return [
-            'username.exists' => "User doesn't exist."
+            'username.exists' => "User doesn't exist.",
+            'recaptcha.required' => "Recaptcha validation failed."
         ];
     }
 }

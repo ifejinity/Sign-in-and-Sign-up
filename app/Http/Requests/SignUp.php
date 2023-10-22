@@ -27,14 +27,15 @@ class SignUp extends FormRequest
             'username' => 'required|unique:users,username|between:6,20',
             'email' => 'required|unique:users,email|email',
             'password' => 'required',
-            'confirm_password' => 'required|same:password'
+            'confirm_password' => 'required|same:password',
+            'recaptcha' => 'required'
         ];
     }
 
     public function messages(): array
     {
         return [
-            
+            'recaptcha.required' => "Recaptcha validation failed."
         ];
     }
 }

@@ -6,7 +6,7 @@
         <div 
         class="section-container min-h-screen flex items-center justify-center">
             <div 
-            class="w-full max-w-[500px] grid grid-cols-6 gap-3 shadow-lg px-5 py-7 rounded-[10px] bg-primary my-7">
+            class="w-full max-w-[700px] grid grid-cols-6 gap-3 shadow-lg px-5 py-7 rounded-[10px] bg-primary my-7">
                 <h1
                 class="md:text-[35px] text-[20px] font-[700] text-tertiary col-span-6"
                 >Sign up</h1>
@@ -29,7 +29,7 @@
                     </template>
                 </Input>
                 <Input 
-                class="col-span-6"
+                class="md:col-span-3 col-span-6"
                 v-model="form.username" 
                 label="Username"
                 :validation-status="form.errors.username ? 'error' : ''">
@@ -38,7 +38,7 @@
                     </template>
                 </Input>
                 <Input 
-                class="col-span-6"
+                class="md:col-span-3 col-span-6"
                 v-model="form.email" 
                 label="Email"
                 :validation-status="form.errors.email ? 'error' : ''">
@@ -47,7 +47,7 @@
                     </template>
                 </Input>
                 <Input 
-                class="col-span-6"
+                class="md:col-span-3 col-span-6"
                 v-model="form.password" 
                 label="Password"
                 type="password"
@@ -57,7 +57,7 @@
                     </template>
                 </Input>
                 <Input 
-                class="col-span-6"
+                class="md:col-span-3 col-span-6"
                 v-model="form.confirm_password" 
                 label="Confirm password"
                 type="password"
@@ -74,9 +74,17 @@
                         Sign in
                     </Link>
                 </div>
+                <div
+                class="flex flex-col items-center justify-center col-span-6">
+                    <Recaptcha 
+                    v-model="form.recaptcha"/>
+                    <p
+                    class="text-red-500 text-[15px]">
+                        {{ form.errors.recaptcha }}
+                    </p>
+                </div>
                 <Button
                 class="bg-tertiary hover:bg-tertiary mt-3 col-span-6"
-                size="lg"
                 @click="signUp">
                     Sign up
                 </Button>
@@ -87,10 +95,11 @@
 
 <script setup>
     // imports
-    import Layout from "../Shared/PublicLayout.vue";
+    import Layout from "@/Shared/PublicLayout.vue";
     import { useForm } from "@inertiajs/vue3";
     import { Input, Button } from 'flowbite-vue'
     import Toastify from 'toastify-js'
+    import Recaptcha from "@/Shared/Recaptcha.vue";
     // user form data 
     const form = useForm({
         first_name: null,
@@ -98,7 +107,8 @@
         username: null,
         email: null,
         password: null,
-        confirm_password: null
+        confirm_password: null,
+        recaptcha: null
     })
     // methods
     function signUp() {

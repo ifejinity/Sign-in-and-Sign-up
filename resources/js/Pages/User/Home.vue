@@ -3,7 +3,10 @@
     title="Home">
     </Head>
     <Layout>
-        
+        <div
+        class="page-section">
+            
+        </div>
     </Layout>
 </template>
 

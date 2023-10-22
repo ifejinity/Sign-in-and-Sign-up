@@ -41,9 +41,16 @@
                         Sign up
                     </Link>
                 </div>
+                <div class="flex flex-col items-center justify-center mt-3">
+                    <Recaptcha 
+                    v-model="form.recaptcha"/>
+                    <p
+                    class="text-red-500 text-[15px]">
+                        {{ form.errors.recaptcha }}
+                    </p>
+                </div>
                 <Button
                 class="bg-tertiary hover:bg-tertiary mt-3"
-                size="lg"
                 @click="signIn">
                     Sign in
                 </Button>
@@ -58,11 +65,13 @@
     import { useForm } from "@inertiajs/vue3";
     import { Input, Button, Checkbox } from 'flowbite-vue'
     import Toastify from 'toastify-js'
+    import Recaptcha from "@/Shared/Recaptcha.vue";
     // user form data 
     const form = useForm({
         username: null,
         password: null,
-        remember: false
+        remember: false,
+        recaptcha: null
     })
     // methods
     function signIn() {

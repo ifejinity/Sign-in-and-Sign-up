@@ -1,12 +1,19 @@
 <template>
-    <div class="w-full p-5 flex justify-between items-center bg-primary shadow-sm">
-        <h1></h1>
-        <button>
+    <div class="w-full p-3 flex justify-between items-center bg-primary shadow-sm">
+        <Link 
+        class="flex items-center gap-3 rounded-[8px] hover:bg-gray-200 p-2">
             <Avatar 
             rounded 
             img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" 
-            size="md"
-            @click="signOut"/>
+            size="md"/>
+            <h1>
+                {{ $page.props.User.username }}
+            </h1>
+        </Link>
+        <button
+        class="button-primary"
+        @click="signOut">
+            Sign out
         </button>
     </div>
 </template>
