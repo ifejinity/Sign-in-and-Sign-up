@@ -54,11 +54,10 @@
 
 <script setup>
     // imports
-    import Layout from "../Shared/PublicLayout.vue";
+    import Layout from "@/Shared/PublicLayout.vue";
     import { useForm } from "@inertiajs/vue3";
     import { Input, Button, Checkbox } from 'flowbite-vue'
     import Toastify from 'toastify-js'
-
     // user form data 
     const form = useForm({
         username: null,
