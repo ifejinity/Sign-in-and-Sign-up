@@ -17,6 +17,7 @@
         "@inertiajs/vue3": "^1.0.12",
         "flowbite": "^1.8.1",
         "flowbite-vue": "^0.0.17",
+        "sweetalert2": "^11.7.32",
         "toastify-js": "^1.12.0"
     }
 }

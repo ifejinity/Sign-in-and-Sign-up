@@ -76,6 +76,15 @@
                         background: "#ef4444",
                     }
                 }).showToast();
+            },
+            onSuccess: () => {
+                Toastify({
+                    text: "Sign in success.",
+                    className: "info rounded-[8px]",
+                    style: {
+                        background: "#22c55e",
+                    }
+                }).showToast();
             }
         })
     }
