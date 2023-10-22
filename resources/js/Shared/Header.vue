@@ -1,6 +1,7 @@
 <template>
     <div class="w-full p-3 flex justify-between items-center bg-primary shadow-sm">
-        <Link 
+        <Link
+        href="#"
         class="flex items-center gap-3 rounded-[8px] hover:bg-gray-200 p-2">
             <Avatar 
             rounded 
