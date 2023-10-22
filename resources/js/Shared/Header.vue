@@ -5,15 +5,20 @@
             <Avatar 
             rounded 
             img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" 
-            size="md"/>
+            size="md"
+            @click="signOut"/>
         </button>
     </div>
 </template>
 
 <script setup>
     // imports
+    import { router } from '@inertiajs/vue3';
     import { Avatar } from 'flowbite-vue'
     // methods
+    function signOut() {
+        router.post('/sign-out');
+    }
 </script>
 
 <style lang="scss" scoped>

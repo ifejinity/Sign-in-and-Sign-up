@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::get('/', function(Request $request) {
-//     Auth::logout();
-//     $request->session()->invalidate();
-//     $request->session()->regenerateToken();
-// });
-Route::inertia('/', 'index');
-Route::inertia('/sign-up-page', 'SignUp');
+// guest
 Route::middleware('guest')->group(function () {
+    Route::inertia('/', 'index')->name('signIn');
+    Route::inertia('/sign-up-page', 'SignUp')->name('signUp');
     Route::post('/sign-in', [UserController::class, 'signIn']);
     Route::post('/sign-up', [UserController::class, 'signUp']);
-    Route::inertia('/home', 'User/Home');
+});
+// auth
+Route::middleware('auth')->group(function() {
+    Route::inertia('/home', 'User/Home')->name('home');
+    Route::post('/sign-out', [UserController::class, 'signOut']);
 });

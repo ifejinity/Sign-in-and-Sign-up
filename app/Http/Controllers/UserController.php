@@ -17,7 +17,7 @@ class UserController extends Controller
         $credentials = $request->only(['username', 'password']);
         if (Auth::attempt($credentials, $request->remember)) {
             $request->session()->regenerate();
-            // return redirect()->intended('dashboard');
+            return redirect()->intended('home');
         }   
     }
     // sign up
@@ -26,5 +26,12 @@ class UserController extends Controller
         $hashedPassword = Hash::make($request->password);
         $userData = Arr::add($userData, 'password', $hashedPassword);
         User::create($userData);
+    }
+    // sign out
+    public function signOut(Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('signIn');
     }
 }
