@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ReCaptcha;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SignIn extends FormRequest
@@ -24,7 +25,7 @@ class SignIn extends FormRequest
         return [
             'username' => 'required|exists:users,username',
             'password' => 'required',
-            'recaptcha' => 'required'
+            'recaptcha' => ['required', new ReCaptcha]
         ];
     }
     
@@ -32,7 +33,6 @@ class SignIn extends FormRequest
     {
         return [
             'username.exists' => "User doesn't exist.",
-            'recaptcha.required' => "Recaptcha validation failed."
         ];
     }
 }

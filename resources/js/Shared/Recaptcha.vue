@@ -21,15 +21,13 @@
     const recaptchaWidget = ref(null);
     const callbackVerify = (response) => {
         console.log(response);
-        emits('update:modelValue', true)
+        emits('update:modelValue', response)
     };
-    const callbackExpired = () => {
-        console.log("expired!");
-        emits('update:modelValue', false)
+    const callbackExpired = (response) => {
+        console.log("expired!", response);
     };
-    const callbackFail = () => {
-        console.log("fail");
-        emits('update:modelValue', false)
+    const callbackFail = (response) => {
+        console.log("fail", response);
     };
     // Reset Recaptcha action
     const actionReset = () => {

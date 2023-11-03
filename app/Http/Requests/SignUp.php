@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ReCaptcha;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SignUp extends FormRequest
@@ -28,7 +29,7 @@ class SignUp extends FormRequest
             'email' => 'required|unique:users,email|email',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
-            'recaptcha' => 'required'
+            'recaptcha' => ['required', new ReCaptcha]
         ];
     }
 
